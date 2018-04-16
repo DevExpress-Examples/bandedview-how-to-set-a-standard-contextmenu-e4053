@@ -1,0 +1,49 @@
+﻿<Window x:Class="Q404007.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:Q404007"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid x:Name="gridContainer">
+            <dxg:GridControl x:Name="grid">
+                <dxg:GridControl.View>
+                    <dxg:TableView x:Name="view" NavigationStyle="Row">
+                        <i:Interaction.Behaviors>
+                            <dxg:BandedViewBehavior>
+                                <dxg:BandedViewBehavior.ColumnDefinitions>
+                                    <dxg:ColumnDefinition Width="*"/>
+                                    <dxg:ColumnDefinition Width="*"/>
+                                </dxg:BandedViewBehavior.ColumnDefinitions>
+                                <dxg:BandedViewBehavior.RowDefinitions>
+                                    <dxg:RowDefinition Height="Auto"/>
+                                    <dxg:RowDefinition Height="Auto"/>
+                                </dxg:BandedViewBehavior.RowDefinitions>
+                            </dxg:BandedViewBehavior>
+                            <local:TableViewContextMenuAdapter>
+                                <local:TableViewContextMenuAdapter.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Item"/>
+                                    </ContextMenu>
+                                </local:TableViewContextMenuAdapter.ContextMenu>
+                            </local:TableViewContextMenuAdapter>
+                        </i:Interaction.Behaviors>
+                    </dxg:TableView>
+                </dxg:GridControl.View>
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn Header="Band" dxg:BandedViewBehavior.IsBand="True"
+                                dxg:BandedViewBehavior.Column="0" dxg:BandedViewBehavior.ColumnSpan="2"
+                                dxg:BandedViewBehavior.Row="0" dxg:BandedViewBehavior.RowSpan="1"/>
+                    <dxg:GridColumn FieldName="ID" dxg:BandedViewBehavior.IsBand="False"
+                                dxg:BandedViewBehavior.Column="0" dxg:BandedViewBehavior.ColumnSpan="1"
+                                dxg:BandedViewBehavior.Row="1" dxg:BandedViewBehavior.RowSpan="1"/>
+                    <dxg:GridColumn FieldName="Value" dxg:BandedViewBehavior.IsBand="False"
+                                dxg:BandedViewBehavior.Column="1" dxg:BandedViewBehavior.ColumnSpan="1"
+                                dxg:BandedViewBehavior.Row="1" dxg:BandedViewBehavior.RowSpan="1"/>
+                </dxg:GridControl.Columns>
+            </dxg:GridControl>
+        </Grid>
+    </Grid>
+</Window>
